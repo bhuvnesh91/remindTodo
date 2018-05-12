@@ -1,11 +1,19 @@
 <ion-header>
   <ion-navbar>
     <ion-title>
-      About
+      Reminders
     </ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
-
+  <ion-list>
+    <ion-item *ngFor="let item of contactlist" data-contact-id='{{item.id}}'>
+      {{ item }}
+      <p>
+        {{item.name}}
+        <span data-reminder-id="{{item.remObj.id}}"> {{item.remObj.text}} </span>
+      </p>
+    </ion-item>
+  </ion-list>
 </ion-content>

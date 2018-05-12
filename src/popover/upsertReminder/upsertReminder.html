@@ -1,0 +1,26 @@
+<ion-card class="mg-custom"> 
+
+    <ion-row>
+        <ion-col>
+            <button ion-button icon-only clear small (click)="saveReminder($event)">
+                <ion-icon name="thumbs-up"></ion-icon>
+            </button>
+        </ion-col>
+        <ion-col>
+            <button ion-button icon-only clear small (click)="close(undefined)">
+                <ion-icon name="thumbs-down"></ion-icon>
+            </button>
+        </ion-col>
+        <ion-col center text-center>
+            <button ion-button icon-only clear small (click)="remind.text=''">
+                <ion-icon name="refresh"></ion-icon>
+            </button>
+        </ion-col>
+    </ion-row>
+
+    <ion-card-content class="p-10">
+        <!-- Add card content here! -->
+        <ion-textarea placeholder="Enter a description" [(ngModel)]="remind.text"></ion-textarea>
+    </ion-card-content>
+
+</ion-card>

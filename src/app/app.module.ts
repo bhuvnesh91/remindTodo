@@ -10,6 +10,14 @@ import { TabsPage } from '../pages/tabs/tabs';
 
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
+import { Contacts } from '@ionic-native/contacts';
+import { IonicStorageModule } from '@ionic/storage';
+import { Reminder } from '../modal/reminder/reminder';
+import { UpsertReminder } from '../popover/upsertReminder/upsertReminder';
+import { AndroidPermissions } from '@ionic-native/android-permissions';
+import { Toast } from '@ionic-native/toast';
+import { ContactUtil } from '../util/contactUtil';
+
 
 @NgModule({
   declarations: [
@@ -17,11 +25,14 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    Reminder,
+    UpsertReminder,
   ],
   imports: [
     BrowserModule,
-    IonicModule.forRoot(MyApp)
+    IonicModule.forRoot(MyApp),
+    IonicStorageModule.forRoot()
   ],
   bootstrap: [IonicApp],
   entryComponents: [
@@ -29,12 +40,18 @@ import { SplashScreen } from '@ionic-native/splash-screen';
     AboutPage,
     ContactPage,
     HomePage,
-    TabsPage
+    TabsPage,
+    Reminder,
+    UpsertReminder,
   ],
   providers: [
     StatusBar,
     SplashScreen,
-    {provide: ErrorHandler, useClass: IonicErrorHandler}
+    Contacts,
+    AndroidPermissions,
+    Toast,
+    ContactUtil,
+    { provide: ErrorHandler, useClass: IonicErrorHandler }
   ]
 })
-export class AppModule {}
+export class AppModule { }
